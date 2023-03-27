@@ -13,10 +13,15 @@ public class Matrix
     {
         get
         {
-            for (var i = 0; i < Array2D.GetLength(0); i++)
+            var shortLength = Array2D.GetLength(0) <= Array2D.GetLength(1)
+                ? Array2D.GetLength(0)
+                : Array2D.GetLength(1);
+            
+            for (var i = 0; i < shortLength; i++)
             {
                 _trace += Array2D[i, i];
             }
+            
             return _trace;
         }
     }

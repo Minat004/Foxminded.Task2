@@ -17,6 +17,7 @@ public static class Program
                 row = Convert.ToInt32(Console.ReadLine());
                 Console.Write("Please, set column of matrix: ");
                 column = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
                 break;
             }
             catch (FormatException)
@@ -27,7 +28,7 @@ public static class Program
         
         var matrix = new Matrix(row, column);
         
-        matrix.Print();
+        matrix.Print(isHighlightedDiagonal: false);
 
         Console.WriteLine();
         Console.Write("Trace (sum of main diagonal): ");
