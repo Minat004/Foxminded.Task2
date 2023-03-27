@@ -65,6 +65,4 @@ public class Matrix
         
         Console.ForegroundColor = ConsoleColor.White;
     }
-    
-    public void PrintLikeSnail(){}
 }
