@@ -5,10 +5,24 @@ public class Matrix
     private const int From = 0;
     private const int To = 99;
 
-    private int _trace;
+    public Matrix(int rowCount, int columnCount)
+    {
+        var random = new Random();
+        
+        Array2D = new int[rowCount, columnCount];
+
+        for (var i = 0; i < Array2D.GetLength(0); i++)
+        {
+            for (var j = 0; j < Array2D.GetLength(1); j++)
+            {
+                Array2D[i, j] = random.Next(From, To);
+            }
+        }
+    }
 
     public int[,] Array2D { get; }
 
+    private int _trace;
     public int Trace
     {
         get
@@ -23,21 +37,6 @@ public class Matrix
             }
             
             return _trace;
-        }
-    }
-
-    public Matrix(int rowCount, int columnCount)
-    {
-        var random = new Random();
-        
-        Array2D = new int[rowCount, columnCount];
-
-        for (var i = 0; i < Array2D.GetLength(0); i++)
-        {
-            for (var j = 0; j < Array2D.GetLength(1); j++)
-            {
-                Array2D[i, j] = random.Next(From, To);
-            }
         }
     }
 

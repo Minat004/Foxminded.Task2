@@ -28,7 +28,7 @@ public static class Program
         
         var matrix = new Matrix(row, column);
         
-        matrix.Print(isHighlightedDiagonal: false);
+        matrix.Print();
 
         Console.WriteLine();
         Console.Write("Trace (sum of main diagonal): ");
