@@ -33,5 +33,8 @@ public static class Program
         Console.WriteLine();
         Console.Write("Trace (sum of main diagonal): ");
         Console.WriteLine(matrix.Trace);
+        Console.WriteLine();
+        
+        matrix.PrintSnailRange();
     }
 }
