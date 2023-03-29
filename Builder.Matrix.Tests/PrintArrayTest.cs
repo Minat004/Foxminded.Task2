@@ -7,7 +7,7 @@ namespace Builder.Matrix.Tests;
 public class PrintArrayTest
 {
     [TestMethod]
-    public void AdoptArrayInput5X5Test()
+    public void OutputArrayInput5X5Test()
     {
         var matrix = new Matrix(5, 5);
         var mock = new Mock<IConsoleIO>();
@@ -31,7 +31,7 @@ public class PrintArrayTest
     }
     
     [TestMethod]
-    public void AdoptArrayInput1X5Test()
+    public void OutputArrayInput1X5Test()
     {
         var matrix = new Matrix(1, 5);
         var mock = new Mock<IConsoleIO>();
@@ -55,7 +55,7 @@ public class PrintArrayTest
     }
     
     [TestMethod]
-    public void AdoptArrayInput5X1Test()
+    public void OutputArrayInput5X1Test()
     {
         var matrix = new Matrix(5, 1);
         var mock = new Mock<IConsoleIO>();
@@ -79,7 +79,7 @@ public class PrintArrayTest
     }
 
     [TestMethod]
-    public void AdoptArray2DInput5X5Test()
+    public void OutputArray2DInput5X5Test()
     {
         var matrix = new Matrix(5, 5);
         var mock = new Mock<IConsoleIO>();
@@ -115,7 +115,7 @@ public class PrintArrayTest
     }
     
     [TestMethod]
-    public void AdoptArray2DInput1X5Test()
+    public void OutputArray2DInput1X5Test()
     {
         var matrix = new Matrix(1, 5);
         var mock = new Mock<IConsoleIO>();
@@ -151,7 +151,7 @@ public class PrintArrayTest
     }
     
     [TestMethod]
-    public void AdoptArray2DInput8X3Test()
+    public void OutputArray2DInput8X3Test()
     {
         var matrix = new Matrix(8, 3);
         var mock = new Mock<IConsoleIO>();
