@@ -8,7 +8,7 @@ public static class Program
     {
         int row;
         int column;
-            
+
         while (true)
         {
             try
@@ -28,13 +28,14 @@ public static class Program
         
         var matrix = new Matrix(row, column);
         
-        matrix.Print();
-
+        PrintArray.Adopt(matrix.Array2D);
         Console.WriteLine();
+        
         Console.Write("Trace (sum of main diagonal): ");
         Console.WriteLine(matrix.Trace);
         Console.WriteLine();
         
-        matrix.PrintSnailRange();
+        PrintArray.Adopt(matrix.ArraySnail);
+        Console.ReadKey();
     }
 }
