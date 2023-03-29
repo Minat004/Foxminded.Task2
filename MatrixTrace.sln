@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixTrace", "MatrixTrace\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder.Matrix", "Builder.Matrix\Builder.Matrix.csproj", "{55672B84-A577-4FB3-BD45-8A60C3FC567F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder.Matrix.Tests", "Builder.Matrix.Tests\Builder.Matrix.Tests.csproj", "{BF34A048-E552-40F3-B9E8-C8F071DF1B02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{55672B84-A577-4FB3-BD45-8A60C3FC567F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55672B84-A577-4FB3-BD45-8A60C3FC567F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55672B84-A577-4FB3-BD45-8A60C3FC567F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF34A048-E552-40F3-B9E8-C8F071DF1B02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF34A048-E552-40F3-B9E8-C8F071DF1B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF34A048-E552-40F3-B9E8-C8F071DF1B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF34A048-E552-40F3-B9E8-C8F071DF1B02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

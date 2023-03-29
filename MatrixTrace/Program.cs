@@ -8,6 +8,7 @@ public static class Program
     {
         int row;
         int column;
+        var print = new PrintArray(new ConsoleIO());
 
         while (true)
         {
@@ -27,15 +28,15 @@ public static class Program
         }
         
         var matrix = new Matrix(row, column);
-        
-        PrintArray.Adopt(matrix.Array2D);
+
+        print.Output(matrix.Array2D);
         Console.WriteLine();
         
         Console.Write("Trace (sum of main diagonal): ");
         Console.WriteLine(matrix.Trace);
         Console.WriteLine();
-        
-        PrintArray.Adopt(matrix.ArraySnail);
+
+        print.Output(matrix.ArraySnail);
         Console.ReadKey();
     }
 }

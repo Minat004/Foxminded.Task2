@@ -1,23 +1,30 @@
 ﻿namespace Builder.Matrix;
 
-public static class PrintArray
+public class PrintArray
 {
-    public static void Adopt(int[] array)
+    private readonly IConsoleIO _consoleIO;
+
+    public PrintArray(IConsoleIO consoleIo)
+    {
+        _consoleIO = consoleIo;
+    }
+
+    public void Output(int[] array)
     {
         for (var i = 0; i < array.Length; i++)
         {
             if (i == array.Length - 1)
             {
-                Console.WriteLine(array[i]);
+                _consoleIO.Write(array[i]);
             }
             else
             {
-                Console.Write(array[i] + ", ");
+                _consoleIO.Write(array[i] + ", ");
             }
         }
     }
 
-    public static void Adopt(int[,] array2D, bool highlightedMainDiagonal = true)
+    public void Output(int[,] array2D, bool highlightedMainDiagonal = true)
     {
         for (var i = 0; i < array2D.GetLength(0); i++)
         {
@@ -47,9 +54,9 @@ public static class PrintArray
                     member *= 10;
                 }
                 
-                Console.Write(array2D[i, j] + backDown);
+                _consoleIO.Write(array2D[i, j] + backDown);
             }
-            Console.WriteLine();
+            _consoleIO.Write("\n");
         }
         
         Console.ForegroundColor = ConsoleColor.White;
