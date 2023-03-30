@@ -11,29 +11,35 @@ public class PrintArray
         _consoleIO = consoleIo;
     }
 
-    public void Input(out int row, out int column)
+    public int InputLengthOf(string name)
     {
-        row = 0;
-        column = 0;
-        
+        var result = string.Empty;
         var endInput = false;
+        
         while (!endInput)
         {
-            try
+            _consoleIO.Write($"Please, set {name} of matrix: ");
+            result += _consoleIO.ReadLine();
+
+            if (!Validate.IsInteger(result))
             {
-                _consoleIO.Write("Please, set row of matrix: ");
-                row = Convert.ToInt32(_consoleIO.ReadLine());
-                _consoleIO.Write("Please, set column of matrix: ");
-                column = Convert.ToInt32(_consoleIO.ReadLine());
+                _consoleIO.Write("Please, write only integer numbers! Try again...");
                 _consoleIO.Write("\n");
+                result = string.Empty;
+            }
+            else if (!Validate.IsPositive(result))
+            {
+                _consoleIO.Write("Please, write only positive numbers! Try again...");
+                _consoleIO.Write("\n");
+                result = string.Empty;
+            }
+            else
+            {
                 endInput = true;
             }
-            catch (FormatException)
-            {
-                _consoleIO.Write("Please, write only numbers! Try again...");
-                _consoleIO.Write("\n");
-            }
         }
+        
+        return Convert.ToInt32(result);
     }
 
     public void Output(int[] array)
