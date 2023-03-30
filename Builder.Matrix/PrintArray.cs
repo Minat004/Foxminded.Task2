@@ -1,4 +1,6 @@
-﻿namespace Builder.Matrix;
+﻿using Console = System.Console;
+
+namespace Builder.Matrix;
 
 public class PrintArray
 {
@@ -7,6 +9,31 @@ public class PrintArray
     public PrintArray(IConsoleIO consoleIo)
     {
         _consoleIO = consoleIo;
+    }
+
+    public void Input(out int row, out int column)
+    {
+        row = 0;
+        column = 0;
+        
+        var endInput = false;
+        while (!endInput)
+        {
+            try
+            {
+                _consoleIO.Write("Please, set row of matrix: ");
+                row = Convert.ToInt32(_consoleIO.ReadLine());
+                _consoleIO.Write("Please, set column of matrix: ");
+                column = Convert.ToInt32(_consoleIO.ReadLine());
+                _consoleIO.Write("\n");
+                endInput = true;
+            }
+            catch (FormatException)
+            {
+                _consoleIO.Write("Please, write only numbers! Try again...");
+                _consoleIO.Write("\n");
+            }
+        }
     }
 
     public void Output(int[] array)

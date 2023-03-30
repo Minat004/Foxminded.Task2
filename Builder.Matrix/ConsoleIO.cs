@@ -11,4 +11,9 @@ public class ConsoleIO : IConsoleIO
     {
         Console.Write(i);
     }
+
+    public string? ReadLine()
+    {
+        return Console.ReadLine();
+    }
 }
