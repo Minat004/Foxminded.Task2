@@ -2,40 +2,57 @@
 
 public class Matrix
 {
-    public const int From = 0;
     public const int To = 100;
+    
+    private readonly int[,] _array2D;
+    private readonly int[] _arraySnail;
 
-    public Matrix(int rowCount, int columnCount)
+    public Matrix(uint rowCount, uint columnCount)
     {
-        Array2D = new int[rowCount, columnCount];
-        ArraySnail = new int[Array2D.Length];
+        _array2D = new int[rowCount, columnCount];
+        _arraySnail = new int[_array2D.Length];
 
         InitializeArray2D();
         InitializeArraySnail();
+        
+        Trace = GetTrace(Array2D);
     }
 
-    public int[,] Array2D { get; }
-    
-    public int[] ArraySnail { get; }
+    public int[,]? Array2D => _array2D.Clone() as int[,];
 
-    public int Trace { get; private set; }
+    public int[]? ArraySnail => _arraySnail. Clone() as int[];
+
+    public int Trace { get; }
 
     private void InitializeArray2D()
     {
         var random = new Random();
         
-        for (var i = 0; i < Array2D.GetLength(0); i++)
+        for (var i = 0; i < _array2D.GetLength(0); i++)
         {
-            for (var j = 0; j < Array2D.GetLength(1); j++)
+            for (var j = 0; j < _array2D.GetLength(1); j++)
             {
-                Array2D[i, j] = random.Next(From, To);
-            }
-
-            if (i < Array2D.GetLength(1))
-            {
-                Trace += Array2D[i, i];
+                _array2D[i, j] = random.Next(To + 1);
             }
         }
+    }
+
+    private static int GetTrace(int[,]? array2D)
+    {
+        var result = 0;
+        for (var i = 0; i < array2D!.GetLength(0); i++)
+        {
+            if (i < array2D.GetLength(1))
+            {
+                result += array2D[i, i];
+            }
+            else
+            {
+                return result;
+            }
+        }
+
+        return result;
     }
 
     private void InitializeArraySnail()
@@ -43,13 +60,13 @@ public class Matrix
         var i = 0;
         var j = 0;
         var wallUp = 0;
-        var wallDown = Array2D.GetLength(0) - 1;
+        var wallDown = _array2D.GetLength(0) - 1;
         var wallLeft = 0;
-        var wallRight = Array2D.GetLength(1) - 1;
+        var wallRight = _array2D.GetLength(1) - 1;
         
-        for (var k = 0; k < Array2D.Length; k++)
+        for (var k = 0; k < _array2D.Length; k++)
         {
-            ArraySnail[k] = Array2D[i, j];
+            _arraySnail[k] = _array2D[i, j];
 
             if (i == wallUp + 1 && j == wallLeft && wallLeft != wallRight)
             {
