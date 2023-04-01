@@ -6,15 +6,12 @@ public static class Program
 {
     public static void Main(string[] args)
     {
-        int row;
-        int column;
-        
         var print = new PrintArray(new ConsoleIO());
 
-        row = print.InputLengthOf(nameof(row));
-        column = print.InputLengthOf(nameof(column));
+        var row = print.GetInputLengthOf(Axis.Row);
+        var column = print.GetInputLengthOf(Axis.Column);
         
-        var matrix = new Matrix(Convert.ToInt32(row), Convert.ToInt32(column));
+        var matrix = new Matrix(row, column);
         
         Console.WriteLine();
         print.Output(matrix.Array2D);

@@ -11,14 +11,14 @@ public class PrintArray
         _consoleIO = consoleIo;
     }
 
-    public int InputLengthOf(string name)
+    public uint GetInputLengthOf(Axis axis)
     {
         var result = string.Empty;
         var endInput = false;
         
         while (!endInput)
         {
-            _consoleIO.Write($"Please, set {name} of matrix: ");
+            _consoleIO.Write($"Please, set {axis} of matrix: ");
             result += _consoleIO.ReadLine();
 
             if (!Validate.IsInteger(result))
@@ -39,12 +39,12 @@ public class PrintArray
             }
         }
         
-        return Convert.ToInt32(result);
+        return Convert.ToUInt32(result);
     }
 
-    public void Output(int[] array)
+    public void Output(int[]? array)
     {
-        for (var i = 0; i < array.Length; i++)
+        for (var i = 0; i < array!.Length; i++)
         {
             if (i == array.Length - 1)
             {
@@ -57,9 +57,9 @@ public class PrintArray
         }
     }
 
-    public void Output(int[,] array2D, bool highlightedMainDiagonal = true)
+    public void Output(int[,]? array2D, bool highlightedMainDiagonal = true)
     {
-        for (var i = 0; i < array2D.GetLength(0); i++)
+        for (var i = 0; i < array2D!.GetLength(0); i++)
         {
             for (var j = 0; j < array2D.GetLength(1); j++)
             {
@@ -71,23 +71,8 @@ public class PrintArray
                 {
                     Console.ForegroundColor = ConsoleColor.White;
                 }
-                
-                var backDown = " ";
 
-                var member = array2D[i, j];
-
-                if (member == Matrix.From)
-                {
-                    member = 1;
-                }
-
-                while (member / Matrix.To < 1)
-                {
-                    backDown += " ";
-                    member *= 10;
-                }
-                
-                _consoleIO.Write(array2D[i, j] + backDown);
+                _consoleIO.Write(array2D[i, j].ToString().PadRight(Matrix.To.ToString().Length + 1));
             }
             _consoleIO.Write("\n");
         }

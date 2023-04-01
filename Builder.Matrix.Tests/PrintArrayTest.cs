@@ -12,7 +12,7 @@ public class PrintArrayTest
 
         print.Output(matrix.ArraySnail);
 
-        for (var i = 0; i < matrix.ArraySnail.Length; i++)
+        for (var i = 0; i < matrix.ArraySnail!.Length; i++)
         {
             var index = i;
             
@@ -36,7 +36,7 @@ public class PrintArrayTest
 
         print.Output(matrix.ArraySnail);
 
-        for (var i = 0; i < matrix.ArraySnail.Length; i++)
+        for (var i = 0; i < matrix.ArraySnail!.Length; i++)
         {
             var index = i;
             
@@ -60,7 +60,7 @@ public class PrintArrayTest
 
         print.Output(matrix.ArraySnail);
 
-        for (var i = 0; i < matrix.ArraySnail.Length; i++)
+        for (var i = 0; i < matrix.ArraySnail!.Length; i++)
         {
             var index = i;
             
@@ -84,28 +84,15 @@ public class PrintArrayTest
 
         print.Output(matrix.Array2D);
 
-        for (var i = 0; i < matrix.Array2D.GetLength(0); i++)
+        for (var i = 0; i < matrix.Array2D!.GetLength(0); i++)
         {
             var rowIndex = i;
             for (var j = 0; j < matrix.Array2D.GetLength(1); j++)
             {
                 var columnIndex = j;
-                var backDown = " ";
-                var member = matrix.Array2D[i, j];
 
-                if (member == Matrix.From)
-                {
-                    member = 1;
-                }
-
-                while (member / Matrix.To < 1)
-                {
-                    backDown += " ";
-                    member *= 10;
-                }
-                
                 mock.Verify(x => 
-                    x.Write($"{matrix.Array2D[rowIndex, columnIndex]}{backDown}"), Times.AtLeastOnce);
+                    x.Write($"{matrix.Array2D[rowIndex, columnIndex].ToString().PadRight(Matrix.To.ToString().Length + 1)}"), Times.AtLeastOnce);
             }
             mock.Verify(x => x.Write("\n"), Times.AtLeastOnce);
         }
@@ -120,28 +107,15 @@ public class PrintArrayTest
 
         print.Output(matrix.Array2D);
 
-        for (var i = 0; i < matrix.Array2D.GetLength(0); i++)
+        for (var i = 0; i < matrix.Array2D!.GetLength(0); i++)
         {
             var rowIndex = i;
             for (var j = 0; j < matrix.Array2D.GetLength(1); j++)
             {
                 var columnIndex = j;
-                var backDown = " ";
-                var member = matrix.Array2D[i, j];
 
-                if (member == Matrix.From)
-                {
-                    member = 1;
-                }
-
-                while (member / Matrix.To < 1)
-                {
-                    backDown += " ";
-                    member *= 10;
-                }
-                
                 mock.Verify(x => 
-                    x.Write($"{matrix.Array2D[rowIndex, columnIndex]}{backDown}"), Times.AtLeastOnce);
+                    x.Write($"{matrix.Array2D[rowIndex, columnIndex].ToString().PadRight(Matrix.To.ToString().Length + 1)}"), Times.AtLeastOnce);
             }
             mock.Verify(x => x.Write("\n"), Times.AtLeastOnce);
         }
@@ -156,28 +130,15 @@ public class PrintArrayTest
 
         print.Output(matrix.Array2D);
 
-        for (var i = 0; i < matrix.Array2D.GetLength(0); i++)
+        for (var i = 0; i < matrix.Array2D!.GetLength(0); i++)
         {
             var rowIndex = i;
             for (var j = 0; j < matrix.Array2D.GetLength(1); j++)
             {
                 var columnIndex = j;
-                var backDown = " ";
-                var member = matrix.Array2D[i, j];
 
-                if (member == Matrix.From)
-                {
-                    member = 1;
-                }
-
-                while (member / Matrix.To < 1)
-                {
-                    backDown += " ";
-                    member *= 10;
-                }
-                
                 mock.Verify(x => 
-                    x.Write($"{matrix.Array2D[rowIndex, columnIndex]}{backDown}"), Times.AtLeastOnce);
+                    x.Write($"{matrix.Array2D[rowIndex, columnIndex].ToString().PadRight(Matrix.To.ToString().Length + 1)}"), Times.AtLeastOnce);
             }
             mock.Verify(x => x.Write("\n"), Times.AtLeastOnce);
         }
