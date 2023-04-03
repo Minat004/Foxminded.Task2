@@ -14,13 +14,15 @@ public class Matrix
 
         InitializeArray2D();
         InitializeArraySnail();
-        
+
+        Array2D = _array2D.Clone() as int[,];
+        ArraySnail = _arraySnail.Clone() as int[];
         Trace = GetTrace(Array2D);
     }
 
-    public int[,]? Array2D => _array2D.Clone() as int[,];
+    public int[,]? Array2D { get; }
 
-    public int[]? ArraySnail => _arraySnail. Clone() as int[];
+    public int[]? ArraySnail { get; }
 
     public int Trace { get; }
 
