@@ -17,7 +17,7 @@ public class Matrix
 
         Array2D = _array2D.Clone() as int[,];
         ArraySnail = _arraySnail.Clone() as int[];
-        Trace = GetTrace(Array2D);
+        Trace = GetTrace();
     }
 
     public int[,]? Array2D { get; }
@@ -39,14 +39,14 @@ public class Matrix
         }
     }
 
-    private static int GetTrace(int[,]? array2D)
+    private int GetTrace()
     {
         var result = 0;
-        for (var i = 0; i < array2D!.GetLength(0); i++)
+        for (var i = 0; i < _array2D.GetLength(0); i++)
         {
-            if (i < array2D.GetLength(1))
+            if (i < _array2D.GetLength(1))
             {
-                result += array2D[i, i];
+                result += _array2D[i, i];
             }
             else
             {
